@@ -1,119 +1,142 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react' 
+import './register.css'
 
 export default function Register() {
-
+      
     const [formData, setFormData] = useState({
         id: '',
-        firstName: '',
-        lastName: '',
+        firstname: '',
+        lastname: '',
         email: '',
         password: '',
-        confirmPassword: ''
-    });
-
-    const handleChange = (e) => {
-        const { firstName, value } = e.target;
-        setFormData({
-            ...formData,
-            [firstName]: value
-        });
-    };
-
-    const handleChange1 = (e) => {
-        const { lastName, value } = e.target;
-        setFormData({
-            ...formData,
-            [lastName]: value
-        });
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        if (formData.password !== formData.confirmPassword) {
-            alert('Passwords do not match!');
-            return;
+        confirmPassword: '',
+      });
+    
+      const [message, setMessage] = useState('');
+    
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+      };
+    
+      const validatePassword = () => {
+        const { password, confirmPassword } = formData;
+        if (password.length < 6) {
+          return 'Password must be at least 6 characters long.';
         }
-
-        // Submit form data (e.g., API call)
-        console.log('Registered Data:', formData);
-        alert('Registration successful!');
-    };
+        if (password !== confirmPassword) {
+          return 'Passwords do not match.';
+        }
+        return '';
+      };
+    
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        const validationMessage = validatePassword();
+        if (validationMessage) {
+          setMessage(validationMessage);
+        } else {
+          setMessage('Registration successful!');
+          // Reset the form fields
+          setFormData({
+            id: '',
+            firstname: '',
+            lastname: '',
+            email: '',
+            password: '',
+            confirmPassword: '',
+          });
+        }
+      };
+    
 
   return (
-    <div>
+    <div  style={{ maxWidth: '400px', margin: 'auto', padding: '20px' }}>
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
-
-        <div className='register1'>
-          <label>ID : </label>
-          <input 
+        <div className='register1' >
+          <label>ID:</label>
+          <input className='input1'
             type="text"
             name="id"
-            value={FormData.id}
+            value={formData.id}
             onChange={handleChange}
             required
           />
         </div>
-
         <div className='register1'>
-          <label>First_Name : </label>
-          <input 
+          <label>First Name:</label>
+          <input className='input1'
             type="text"
-            name="firstName"
-            value={FormData.firstName}
+            name="firstname"
+            value={formData.firstname}
             onChange={handleChange}
             required
           />
         </div>
-
         <div className='register1'>
-          <label>Last_Name : </label>
-          <input 
+          <label>Last Name:</label>
+          <input className='input1'
             type="text"
-            name="lastName"
-            value={FormData.lastName}
-            onChange={handleChange1}
+            name="lastname"
+            value={formData.lastname}
+            onChange={handleChange}
             required
           />
         </div>
-
         <div className='register1'>
-          <label>Email : </label>
-          <input 
+          <label>Email:</label>
+          <input className='input1'
             type="email"
             name="email"
-            value={FormData.email}
+            value={formData.email}
             onChange={handleChange}
             required
           />
         </div>
-
         <div className='register1'>
-          <label>Password : </label>
-          <input 
+          <label>Password:</label>
+          <input className='input1'
             type="password"
             name="password"
-            value={FormData.password}
+            value={formData.password}
             onChange={handleChange}
             required
           />
         </div>
-
         <div className='register1'>
-          <label>Confirm Password : </label>
-          <input 
+          <label>Confirm Password:</label>
+          <input className='input1'
             type="password"
             name="confirmPassword"
-            value={FormData.confirmPassword}
+            value={formData.confirmPassword}
             onChange={handleChange}
             required
           />
         </div>
-
-        <button type="submit" className='buttonregister'>Register</button>
-
+        <button className='buttonregister'
+          type="submit"
+          
+          
+        >
+          Register
+        </button>
       </form>
+      {message && (
+        <div
+          style={{
+            marginTop: '20px',
+            padding: '10px',
+            color: message === 'Registration successful!' ? 'green' : 'red',
+            border: `1px solid ${
+              message === 'Registration successful!' ? 'green' : 'red'
+            }`,
+          }}
+        >
+          {message}
+        </div>
+      )}
     </div>
   );
 }
+
