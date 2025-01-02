@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import './login.css'
 import axios from 'axios';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 export default function Login() {
 
@@ -29,7 +31,11 @@ export default function Login() {
       };
 
   return (
+    <div>
+      <Header />
     <div style={{ maxWidth: '400px', margin: 'auto', padding: '20px' }}>
+      
+             
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div className='login1'>
@@ -70,6 +76,8 @@ export default function Login() {
           Login
         </button>
       </form>
+    </div>
+    <Footer />
     </div>
   );
 }
