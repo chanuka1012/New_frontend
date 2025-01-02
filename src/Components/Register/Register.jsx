@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './register.css';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -69,6 +71,8 @@ export default function Register() {
 
 
   return (
+    <div>
+      <Header />
     <div style={{ maxWidth: '400px', margin: 'auto', padding: '20px' }}>
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
@@ -135,6 +139,8 @@ export default function Register() {
           {message}
         </div>
       )}
+    </div>
+    <Footer />
     </div>
   );
 }
