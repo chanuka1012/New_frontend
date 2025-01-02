@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import BackgroundImage from '../BackgroundImage/BackGroundImage';
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -73,6 +74,7 @@ export default function Register() {
   return (
     <div>
       <Header />
+      <BackgroundImage />
     <div style={{ maxWidth: '400px', margin: 'auto', padding: '20px' }}>
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
