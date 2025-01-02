@@ -3,6 +3,7 @@ import './login.css'
 import axios from 'axios';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
+import BackgroundImage from '../BackgroundImage/BackGroundImage';
 
 export default function Login() {
 
@@ -33,6 +34,7 @@ export default function Login() {
   return (
     <div>
       <Header />
+      <BackgroundImage />
     <div style={{ maxWidth: '400px', margin: 'auto', padding: '20px' }}>
       
              
