@@ -4,9 +4,9 @@ import axios from 'axios';
 
 export default function Register() {
   const [formData, setFormData] = useState({
-    id: '',
-    firstname: '',
-    lastname: '',
+    //id: '',
+    firstName: '',
+    lastName: '',
     email: '',
     password: '',
   });
@@ -28,54 +28,53 @@ export default function Register() {
 
   
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
-
-  const validationMessage = validatePassword();
-  if (validationMessage) {
-    setMessage(validationMessage);
-    return;
-  }
-
-  try {
-    const response = await axios.post('http://localhost:8081/api/users/register', formData);
-    setMessage(response.data); // Backend success message
-    setFormData({
-      id: '',
-      firstname: '',
-      lastname: '',
-      email: '',
-      password: '',
-    });
-  } catch (error) {
-    setMessage('Error registering user. Please try again.');
-    console.error(error);
-  }
-};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+  
+    const validationMessage = validatePassword();
+    if (validationMessage) {
+      setMessage(validationMessage);
+      return;
+    }
+  
+    try {
+      const response = await axios.post('http://localhost:8081/api/users/register', formData);
+      setMessage(response.data); // Backend success message
+      setFormData({
+        firstName: '',
+        lastName: '',
+        email: '',
+        password: '',
+      });
+    } catch (error) {
+      if (error.response) {
+        // Backend returned an error response
+        setMessage(error.response.data || 'Error registering user. Please try again.');
+      } else if (error.request) {
+        // No response received from the backend
+        setMessage('No response from server. Please try again later.');
+      } else {
+        // Other errors
+        setMessage('Error registering user. Please try again.');
+      }
+      console.error(error);
+    }
+  };
+  
 
 
   return (
     <div style={{ maxWidth: '400px', margin: 'auto', padding: '20px' }}>
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
-        <div className="register1">
-          <label>ID:</label>
-          <input
-            className="input1"
-            type="text"
-            name="id"
-            value={formData.id}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        
         <div className="register1">
           <label>First Name:</label>
           <input
             className="input1"
             type="text"
-            name="firstname"
-            value={formData.firstname}
+            name="firstName"
+            value={formData.firstName}
             onChange={handleChange}
             required
           />
@@ -85,8 +84,8 @@ const handleSubmit = async (e) => {
           <input
             className="input1"
             type="text"
-            name="lastname"
-            value={formData.lastname}
+            name="lastName"
+            value={formData.lastName} 
             onChange={handleChange}
             required
           />
