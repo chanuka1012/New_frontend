@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './register.css';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 export default function Register() {
   const [formData, setFormData] = useState({
@@ -12,6 +13,7 @@ export default function Register() {
   });
 
   const [message, setMessage] = useState('');
+  const navigate = useNavigate(); // Hook for navigation
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,13 +41,16 @@ export default function Register() {
   
     try {
       const response = await axios.post('http://localhost:8081/api/users/register', formData);
-      setMessage(response.data); // Backend success message
+      setMessage('Registration successful!'); // Backend success message
       setFormData({
         firstName: '',
         lastName: '',
         email: '',
         password: '',
       });
+
+      // Redirect to login page
+      navigate('/login');
     } catch (error) {
       if (error.response) {
         // Backend returned an error response
