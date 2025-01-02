@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './login.css'
+import axios from 'axios';
 
 export default function Login() {
 
@@ -16,31 +17,15 @@ export default function Login() {
         setFormData({ ...formData, [name]: value });
       };
     
-      const handleSubmit = (e) => {
+      const handleSubmit = async (e) => {
         e.preventDefault();
-        setErrorMessage('');
-        setSuccessMessage('');
-    
-        // Simple validation for demo purposes
-        if (!formData.email || !formData.password) {
-          setErrorMessage('Please fill in both fields.');
-          return;
+        try {
+          const response = await axios.post('http://localhost:8081/api/users/login', formData);
+          setSuccessMessage(response.data); // "Login successful"
+          console.log('User authenticated');
+        } catch (error) {
+          setErrorMessage(error.response?.data || 'Invalid credentials.');
         }
-    
-        if (formData.password.length < 6) {
-          setErrorMessage('Password must be at least 6 characters long.');
-          return;
-        }
-    
-        // Mock successful login
-        setSuccessMessage('Login successful!');
-        console.log('Login Data Submitted:', formData);
-    
-        // Clear form fields
-        setFormData({
-          email: '',
-          password: '',
-        });
       };
 
   return (
