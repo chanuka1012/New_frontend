@@ -4,6 +4,8 @@ import axios from 'axios';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import BackgroundImage from '../BackgroundImage/BackGroundImage';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Login() {
 
@@ -14,6 +16,10 @@ export default function Login() {
     
       const [errorMessage, setErrorMessage] = useState('');
       const [successMessage, setSuccessMessage] = useState('');
+      
+      // Inside Login component
+        const navigate = useNavigate();
+
     
       const handleChange = (e) => {
         const { name, value } = e.target;
@@ -26,6 +32,7 @@ export default function Login() {
           const response = await axios.post('http://localhost:8081/api/users/login', formData);
           setSuccessMessage(response.data); // "Login successful"
           console.log('User authenticated');
+          navigate('/expense'); // Navigate to Expense Page on successful login
         } catch (error) {
           setErrorMessage(error.response?.data || 'Invalid credentials.');
         }
