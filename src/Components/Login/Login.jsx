@@ -3,7 +3,7 @@ import './login.css'
 import axios from 'axios';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import BackgroundImage from '../BackgroundImage/BackGroundImage';
+//import BackgroundImage from '../BackgroundImage/BackGroundImage';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -41,10 +41,13 @@ export default function Login() {
   return (
     <div>
       <Header />
-      <BackgroundImage />
-    <div style={{ maxWidth: '400px', margin: 'auto', padding: '20px' }}>
+
+      <div className="login-container">
+
+
+      <div style={{ maxWidth: '400px', margin: 'auto', padding: '20px' }}>
       
-             
+      <div className="box">       
       <h2>Login</h2>
       <form onSubmit={handleSubmit}>
         <div className='login1'>
@@ -86,7 +89,9 @@ export default function Login() {
         </button>
       </form>
     </div>
+    </div>
     <Footer />
+    </div>
     </div>
   );
 }
