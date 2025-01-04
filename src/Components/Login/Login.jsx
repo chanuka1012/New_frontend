@@ -32,7 +32,7 @@ export default function Login() {
           const response = await axios.post('http://localhost:8081/api/users/login', formData);
           setSuccessMessage(response.data); // "Login successful"
           console.log('User authenticated');
-          navigate('/expense'); // Navigate to Expense Page on successful login
+          navigate('/main'); // Navigate to Expense Page on successful login
         } catch (error) {
           setErrorMessage(error.response?.data || 'Invalid credentials.');
         }
