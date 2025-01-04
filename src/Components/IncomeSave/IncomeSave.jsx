@@ -6,16 +6,18 @@ import BackgroundImage from '../BackgroundImage/BackGroundImage';
 import axios from 'axios';
 import Header01 from '../Header01/Header01';
 
-export default function ExpenseSavePage() {
+export default function IncomeSave() {
   const { state } = useLocation();
   const navigate = useNavigate();
 
-  const category = state?.category; // Retrieve category passed from ExpensePage
+  
 
-  const [expenseData, setExpenseData] = useState({
+  const category = state?.category; // Retrieve category passed from Income Page
+
+  const [incomeData, setIncomeData] = useState({
     amount: '',
     date: '',
-    description: '',
+    source: '',
     userId: '', // Add dynamic userId if available
   });
 
@@ -23,29 +25,29 @@ export default function ExpenseSavePage() {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setExpenseData({ ...expenseData, [name]: value });
+    setIncomeData({ ...incomeData, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await axios.post('http://localhost:8081/api/expenses/save', {
-        ...expenseData,
+      const response = await axios.post('http://localhost:8081/api/incomes/save', {
+        ...incomeData,
         category, // Add category to the request data
       });
 
-      setMessage('Expense saved successfully!');
-      setExpenseData({
+      setMessage('Income saved successfully!');
+      setIncomeData({
         amount: '',
         date: '',
-        description: '',
+        source: '',
         userId: '',
       });
-      navigate('/expense'); // Optionally redirect after saving
+      navigate('/income'); // Redirect back to Income Page
     } catch (error) {
       setMessage(
-        error.response?.data || 'Error saving expense. Please try again later.'
+        error.response?.data || 'Error saving income. Please try again later.'
       );
       console.error(error);
     }
@@ -53,17 +55,18 @@ export default function ExpenseSavePage() {
 
   return (
     <div>
-      <Header01 />
+      <Header01/>
       <BackgroundImage />
-      <div style={{ maxWidth: '500px', margin: 'auto', padding: '20px' }}>
-        <h2>Save Expense for: {category}</h2>
-        <form onSubmit={handleSubmit}>
+      <div style={{ padding: '20px', textAlign: 'center' }}>
+        <h2>Save Income</h2>
+        {category && <h3>Category: {category}</h3>}
+        <form onSubmit={handleSubmit} style={{ maxWidth: '400px', margin: '0 auto' }}>
           <div style={{ marginBottom: '15px' }}>
-            <label>Amount:</label>
+            <label style={{ display: 'block', marginBottom: '5px' }}>Amount:</label>
             <input
               type="number"
               name="amount"
-              value={expenseData.amount}
+              value={incomeData.amount}
               onChange={handleChange}
               required
               style={{
@@ -76,11 +79,11 @@ export default function ExpenseSavePage() {
           </div>
 
           <div style={{ marginBottom: '15px' }}>
-            <label>Date:</label>
+            <label style={{ display: 'block', marginBottom: '5px' }}>Date:</label>
             <input
               type="date"
               name="date"
-              value={expenseData.date}
+              value={incomeData.date}
               onChange={handleChange}
               required
               style={{
@@ -93,12 +96,12 @@ export default function ExpenseSavePage() {
           </div>
 
           <div style={{ marginBottom: '15px' }}>
-            <label>Description:</label>
-            <textarea
-              name="description"
-              value={expenseData.description}
+            <label style={{ display: 'block', marginBottom: '5px' }}>Source:</label>
+            <input
+              type="text"
+              name="source"
+              value={incomeData.source}
               onChange={handleChange}
-              rows="3"
               required
               style={{
                 width: '100%',
@@ -106,38 +109,24 @@ export default function ExpenseSavePage() {
                 borderRadius: '5px',
                 border: '1px solid #ccc',
               }}
-            ></textarea>
+            />
           </div>
 
           <button
             type="submit"
             style={{
-              backgroundColor: '#28A745',
-              color: 'white',
               padding: '10px 20px',
               borderRadius: '5px',
               border: 'none',
+              backgroundColor: '#007BFF',
+              color: 'white',
               cursor: 'pointer',
-              width: '100%',
             }}
           >
-            Save Expense
+            Save Income
           </button>
         </form>
-        {message && (
-          <div
-            style={{
-              marginTop: '20px',
-              padding: '10px',
-              color: message.includes('successfully') ? 'green' : 'red',
-              border: `1px solid ${
-                message.includes('successfully') ? 'green' : 'red'
-              }`,
-            }}
-          >
-            {message}
-          </div>
-        )}
+        {message && <p style={{ marginTop: '20px', color: 'green' }}>{message}</p>}
       </div>
       <Footer />
     </div>

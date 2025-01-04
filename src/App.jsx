@@ -9,6 +9,9 @@ import Register from './Components/Register/Register';
 import Login from './Components/Login/Login';
 import Expense from './Components/Expense/Expense';
 import ExpenseSavePage from './Components/ExpenseSave/ExpenseSave';
+import Main from './Components/Main/Main';
+import Income from './Components/Income/Income';
+import IncomeSave from './Components/IncomeSave/IncomeSave';
 
 
 function App() {
@@ -23,6 +26,9 @@ function App() {
          <Route path="/login" element={<Login />} />
          <Route path="/expense" element={<Expense />} />
          <Route path="/expense/save" element={<ExpenseSavePage />} />
+         <Route path="/main" element={<Main />} />
+         <Route path="/income" element={<Income />} />
+         <Route path="/income/save" element={<IncomeSave />} />
        </Routes>
       </BrowserRouter> 
     </>

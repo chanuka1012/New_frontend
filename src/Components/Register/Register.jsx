@@ -74,8 +74,13 @@ export default function Register() {
   return (
     <div>
       <Header />
-      <BackgroundImage />
+      
+      <div className="registration-container">
+
     <div style={{ maxWidth: '400px', margin: 'auto', padding: '20px' }}>
+
+    <div className="box">
+
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
         
@@ -141,8 +146,10 @@ export default function Register() {
           {message}
         </div>
       )}
+      </div>
     </div>
     <Footer />
+    </div>
     </div>
   );
 }
