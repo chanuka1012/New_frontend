@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Header from '../Header/Header';
+//import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import BackgroundImage from '../BackgroundImage/BackGroundImage';
 import axios from 'axios';
+import Header01 from '../Header01/Header01';
 
 export default function IncomeSave() {
   const { state } = useLocation();
@@ -54,7 +55,7 @@ export default function IncomeSave() {
 
   return (
     <div>
-      <Header />
+      <Header01/>
       <BackgroundImage />
       <div style={{ padding: '20px', textAlign: 'center' }}>
         <h2>Save Income</h2>

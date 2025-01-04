@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import Header from '../Header/Header';
+//import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import BackgroundImage from '../BackgroundImage/BackGroundImage';
 import axios from 'axios';
+import Header01 from '../Header01/Header01';
 
 export default function ExpenseSavePage() {
   const { state } = useLocation();
@@ -52,7 +53,7 @@ export default function ExpenseSavePage() {
 
   return (
     <div>
-      <Header />
+      <Header01 />
       <BackgroundImage />
       <div style={{ maxWidth: '500px', margin: 'auto', padding: '20px' }}>
         <h2>Save Expense for: {category}</h2>
