@@ -1,0 +1,20 @@
+.income-container{
+    background-image: url('/money_manager.jpg'); /* Replace with the path to your image */
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.box {
+    background-color: rgba(255, 255, 255, 0.5); /* White background with 0.5 opacity */
+    padding: 20px;
+    padding-right: 40px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 450px;
+  }

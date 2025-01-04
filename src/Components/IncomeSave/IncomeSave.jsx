@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 //import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import BackgroundImage from '../BackgroundImage/BackGroundImage';
+//import BackgroundImage from '../BackgroundImage/BackGroundImage';
 import axios from 'axios';
 import Header01 from '../Header01/Header01';
+import './incomeSave.css'
 
 export default function IncomeSave() {
   const { state } = useLocation();
@@ -56,8 +57,9 @@ export default function IncomeSave() {
   return (
     <div>
       <Header01/>
-      <BackgroundImage />
+      <div className="income-container">
       <div style={{ padding: '20px', textAlign: 'center' }}>
+      <div className="box">
         <h2>Save Income</h2>
         {category && <h3>Category: {category}</h3>}
         <form onSubmit={handleSubmit} style={{ maxWidth: '400px', margin: '0 auto' }}>
@@ -127,6 +129,8 @@ export default function IncomeSave() {
           </button>
         </form>
         {message && <p style={{ marginTop: '20px', color: 'green' }}>{message}</p>}
+      </div>
+      </div>
       </div>
       <Footer />
     </div>

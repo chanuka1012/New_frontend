@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import BackgroundImage from '../BackgroundImage/BackGroundImage';
+//import BackgroundImage from '../BackgroundImage/BackGroundImage';
+
+import  './main.css'
 
 
 export default function Main() {
@@ -12,8 +14,10 @@ export default function Main() {
   return (
     <div>
       <Header />
-      <BackgroundImage />
+      <div className="main-container">
+      
       <div style={{ padding: '20px', textAlign: 'center' }}>
+      <div className="box">
         <h1>Welcome to the Finance Manager</h1>
         <p>Manage your expenses, income, and budget efficiently.</p>
 
@@ -121,6 +125,8 @@ export default function Main() {
           </button>
 
         </div>
+        </div>
+      </div>
       </div>
       <Footer />
     </div>
