@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 //import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import BackgroundImage from '../BackgroundImage/BackGroundImage';
+//import BackgroundImage from '../BackgroundImage/BackGroundImage';
 import Header01 from '../Header01/Header01';
+import './expense.css'
 
 export default function ExpensePage() {
   const expenseCategories = [
@@ -32,8 +33,9 @@ export default function ExpensePage() {
   return (
     <div>
       <Header01 />
-      <BackgroundImage />
+      <div className="expense-container">
       <div style={{ padding: '20px', textAlign: 'center' }}>
+      <div className="box">
         <h2>Expense Categories</h2>
 
         {/* Dropdown for Main Categories */}
@@ -87,6 +89,8 @@ export default function ExpensePage() {
             </div>
           </div>
         )}
+        </div>
+      </div>
       </div>
       <Footer />
     </div>

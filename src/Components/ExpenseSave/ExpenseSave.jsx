@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 //import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
-import BackgroundImage from '../BackgroundImage/BackGroundImage';
+//import BackgroundImage from '../BackgroundImage/BackGroundImage';
 import axios from 'axios';
 import Header01 from '../Header01/Header01';
+import './expenseSave.css'
 
 export default function ExpenseSavePage() {
   const { state } = useLocation();
@@ -54,8 +55,10 @@ export default function ExpenseSavePage() {
   return (
     <div>
       <Header01 />
-      <BackgroundImage />
+      <div className="expense-container">
+      
       <div style={{ maxWidth: '500px', margin: 'auto', padding: '20px' }}>
+      <div className="box">
         <h2>Save Expense for: {category}</h2>
         <form onSubmit={handleSubmit}>
           <div style={{ marginBottom: '15px' }}>
@@ -138,6 +141,8 @@ export default function ExpenseSavePage() {
             {message}
           </div>
         )}
+        </div>
+      </div>
       </div>
       <Footer />
     </div>
