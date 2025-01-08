@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from '../Header/Header';
+//import Header from '../Header/Header';
+import Header02 from '../Headero2/Header02';
 import Footer from '../Footer/Footer';
 //import BackgroundImage from '../BackgroundImage/BackGroundImage';
 
@@ -13,7 +14,7 @@ export default function Main() {
 
   return (
     <div>
-      <Header />
+      <Header02/>
       <div className="main-container">
       
       <div style={{ padding: '20px', textAlign: 'center' }}>
