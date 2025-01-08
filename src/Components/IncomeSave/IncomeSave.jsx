@@ -4,7 +4,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 //import BackgroundImage from '../BackgroundImage/BackGroundImage';
 import axios from 'axios';
-import Header01 from '../Header01/Header01';
+//import Header01 from '../Header01/Header01';
+import Header03 from '../Header03/Header03';
 import './incomeSave.css'
 
 export default function IncomeSave() {
@@ -56,7 +57,7 @@ export default function IncomeSave() {
 
   return (
     <div>
-      <Header01/>
+      <Header03/>
       <div className="income-container">
       <div style={{ padding: '20px', textAlign: 'center' }}>
       <div className="box">

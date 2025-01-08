@@ -4,7 +4,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 //import BackgroundImage from '../BackgroundImage/BackGroundImage';
 import axios from 'axios';
-import Header01 from '../Header01/Header01';
+//import Header01 from '../Header01/Header01';
+import Header03 from '../Header03/Header03';
 import './expenseSave.css'
 
 export default function ExpenseSavePage() {
@@ -54,7 +55,7 @@ export default function ExpenseSavePage() {
 
   return (
     <div>
-      <Header01 />
+      <Header03/>
       <div className="expense-container">
       
       <div style={{ maxWidth: '500px', margin: 'auto', padding: '20px' }}>

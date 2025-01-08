@@ -3,7 +3,9 @@ import { useNavigate } from 'react-router-dom';
 //import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 //import BackgroundImage from '../BackgroundImage/BackGroundImage';
-import Header01 from '../Header01/Header01';
+//import Header01 from '../Header01/Header01';
+import Header03 from '../Header03/Header03';
+//import Header02 from '../Headero2/Header02';
 import './expense.css'
 
 export default function ExpensePage() {
@@ -32,7 +34,7 @@ export default function ExpensePage() {
 
   return (
     <div>
-      <Header01 />
+      <Header03/>
       <div className="expense-container">
       <div style={{ padding: '20px', textAlign: 'center' }}>
       <div className="box">
