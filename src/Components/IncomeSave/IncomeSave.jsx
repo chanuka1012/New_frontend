@@ -16,9 +16,12 @@ export default function IncomeSave() {
 
   const category = state?.category; // Retrieve category passed from Income Page
 
+  // Get today's date in YYYY-MM-DD format
+  const today = new Date().toISOString().split('T')[0];
+
   const [incomeData, setIncomeData] = useState({
     amount: '',
-    date: '',
+    date: today, // Initialize with today's date
     source: '',
     userId: '', // Add dynamic userId if available
   });
@@ -42,7 +45,7 @@ export default function IncomeSave() {
       setMessage('Income saved successfully!');
       setIncomeData({
         amount: '',
-        date: '',
+        date: today, // Reset date to today's date
         source: '',
         userId: '',
       });
