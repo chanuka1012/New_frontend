@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 //import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -16,12 +16,18 @@ export default function ExpenseSavePage() {
 
   const [expenseData, setExpenseData] = useState({
     amount: '',
-    date: '',
+    date: '',// Will be auto-filled
     description: '',
     userId: '', // Add dynamic userId if available
   });
 
   const [message, setMessage] = useState('');
+
+  // Auto-fill date with the current date when the component loads
+  useEffect(() => {
+    const currentDate = new Date().toISOString().split('T')[0]; // Format YYYY-MM-DD
+    setExpenseData((prevData) => ({ ...prevData, date: currentDate }));
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -40,7 +46,7 @@ export default function ExpenseSavePage() {
       setMessage('Expense saved successfully!');
       setExpenseData({
         amount: '',
-        date: '',
+        date: new Date().toISOString().split('T')[0], // Reset date to current date
         description: '',
         userId: '',
       });
