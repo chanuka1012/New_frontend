@@ -53,7 +53,10 @@ export default function Register() {
       });
 
       // Redirect to login page
-      navigate('/login');
+      //Delay navigation to Login page
+      setTimeout(()=>{
+        navigate('/login');
+      },3000);//3-second delay
     } catch (error) {
       if (error.response) {
         // Backend returned an error response
@@ -66,7 +69,7 @@ export default function Register() {
         setMessage('Error registering user. Please try again.');
       }
       console.error(error);
-    }
+    } 
   };
   
 
