@@ -22,8 +22,8 @@ export default function HomePage() {
         </div>
       </main>
       </div>
-      <Footer />
       </div>
+      <Footer />
     </div>
   );
 }

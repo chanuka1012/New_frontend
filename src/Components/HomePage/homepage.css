@@ -5,7 +5,12 @@
     border-radius: 8px;
     width: 100%;
     max-width: 450px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add subtle shadow for better contrast */
+    margin-left: auto; /* Push the box to the right */
+    margin-right: 20px; /* Add some space from the right edge */
   }
+
+  
 
   .home-container {
     background-image: url('/money_manager.jpg'); /* Replace with the path to your image */
