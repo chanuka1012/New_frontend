@@ -12,7 +12,11 @@ import ExpenseSavePage from './Components/ExpenseSave/ExpenseSave';
 import Main from './Components/Main/Main';
 import Income from './Components/Income/Income';
 import IncomeSave from './Components/IncomeSave/IncomeSave';
-
+import Report from './Components/Report/Report';
+import Budget from './Components/Budget/Budget';
+import Account from './Components/Account/Account';
+import Notification from './Components/Notification/Notification';
+import AccountSave from './Components/Account/AccountSave';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -29,6 +33,11 @@ function App() {
          <Route path="/main" element={<Main />} />
          <Route path="/income" element={<Income />} />
          <Route path="/income/save" element={<IncomeSave />} />
+         <Route path="/report" element={<Report />} />
+         <Route path="/budget" element={<Budget/>} />
+         <Route path="/account" element={<Account/>} />
+         <Route path="/notification" element={<Notification/>} />
+         <Route path="/account/save" element={<AccountSave />} />
        </Routes>
       </BrowserRouter> 
     </>
