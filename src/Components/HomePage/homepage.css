@@ -1,13 +1,16 @@
 .box {
-    background-color: rgba(255, 255, 255, 0.5); /* White background with 0.5 opacity */
+    background-color: rgba(255, 255, 255, 0.2) !important;; /* White background with 0.5 opacity */
     padding: 20px;
     padding-right: 40px;
     border-radius: 8px;
     width: 100%;
     max-width: 450px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add subtle shadow for better contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow for better contrast */
     margin-left: auto; /* Push the box to the right */
     margin-right: 20px; /* Add some space from the right edge */
+    color: #000; /* Ensure the text remains fully visible */
+    backdrop-filter: blur(10px); /* Add a glassmorphic effect */
+    border: 1px solid rgba(255, 255, 255, 0.4); /*  Add a subtle border for visibility */
   }
 
   
