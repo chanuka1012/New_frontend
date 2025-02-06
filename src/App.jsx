@@ -20,17 +20,20 @@ function App() {
   return (
     <>
       <BrowserRouter>
-       <Routes>
-         <Route path="/" element={<HomePage />} />
-         <Route path="/register" element={<Register />} />
-         <Route path="/login" element={<Login />} />
-         <Route path="/expense" element={<Expense />} />
-         <Route path="/expense/save" element={<ExpenseSavePage />} />
-         <Route path="/main" element={<Main />} />
-         <Route path="/income" element={<Income />} />
-         <Route path="/income/save" element={<IncomeSave />} />
-       </Routes>
-      </BrowserRouter> 
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/expense" element={<Expense />} />
+          <Route path="/expense/save" element={<ExpenseSavePage />} />
+          <Route path="/main" element={<Main />} />
+          <Route path="/income" element={<Income />} />
+          <Route path="/income/save" element={<IncomeSave />} />
+        </Routes>
+      </BrowserRouter>
+
+
+
     </>
   );
 }
