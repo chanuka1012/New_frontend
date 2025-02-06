@@ -12,8 +12,7 @@ import ExpenseSavePage from './Components/ExpenseSave/ExpenseSave';
 import Main from './Components/Main/Main';
 import Income from './Components/Income/Income';
 import IncomeSave from './Components/IncomeSave/IncomeSave';
-import Report from './Components/Report/Report';
-import Budget from './Components/Budget/Budget';
+
 
 
 
@@ -32,8 +31,7 @@ function App() {
          <Route path="/main" element={<Main />} />
          <Route path="/income" element={<Income />} />
          <Route path="/income/save" element={<IncomeSave />} />
-         <Route path="/report" element={<Report />} />
-         <Route path="/budget" element={<Budget/>} />
+         
          
        </Routes>
       </BrowserRouter> 

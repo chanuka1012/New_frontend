@@ -57,41 +57,10 @@ export default function Main() {
             Income
           </button>
 
-          {/* Budget Button */}
-          <button
-            style={{
-              margin: '10px',
-              padding: '15px 30px',
-              borderRadius: '10px',
-              border: 'none',
-              backgroundColor: '#FFC107',
-              color: 'white',
-              fontSize: '18px',
-              cursor: 'pointer',
-            }}
-            onClick={() => navigate('/budget')}
-          >
-            Budget
-          </button>
+          
 
           
 
-          {/* Report Button */}
-          <button
-            style={{
-              margin: '10px',
-              padding: '15px 30px',
-              borderRadius: '10px',
-              border: 'none',
-              backgroundColor: 'purple',
-              color: 'white',
-              fontSize: '18px',
-              cursor: 'pointer',
-            }}
-            onClick={() => navigate('/report')}
-          >
-            Report
-          </button>
 
           
 
