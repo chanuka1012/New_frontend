@@ -5,6 +5,7 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 //import BackgroundImage from '../BackgroundImage/BackGroundImage';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../Navbar/Navbar';
 
 
 export default function Login() {
@@ -42,7 +43,7 @@ export default function Login() {
 
     <div>
 
-      <Header />
+      <Navbar />
 
       <div className="login-container">
         <div className="login-card">
@@ -93,6 +94,7 @@ export default function Login() {
           </p>
         </div>
       </div>
+
     </div>
   );
 

@@ -1,13 +1,14 @@
 /* Global Styling */
 body {
   font-family: "Arial", sans-serif;
-  background: url('C:\Users\MSI\Desktop\Expsnse Tracker\New_frontend\src\assets/background.jp') no-repeat center center;
+  background: url('C:\Users\MSI\Desktop\Expsnse Tracker\New_frontend\src\assets/bg2.png') no-repeat center center;
   background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  margin: 0;
+  padding: 0 20%;
+
 }
 
 /* Dark Overlay */
