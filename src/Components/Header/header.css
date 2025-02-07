@@ -1,0 +1,11 @@
+.header-link {
+    margin: 0 15px;
+    color: white; /* Initial text color */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .header-link:hover {
+    color: red; /* Change text color to red on hover */
+    cursor: pointer; /* Change cursor to pointer (hand icon) */
+  }
+  

@@ -74,22 +74,7 @@ export default function Main() {
             Budget
           </button>
 
-          {/* Account Button */}
-          <button
-            style={{
-              margin: '10px',
-              padding: '15px 30px',
-              borderRadius: '10px',
-              border: 'none',
-              backgroundColor: 'red',
-              color: 'white',
-              fontSize: '18px',
-              cursor: 'pointer',
-            }}
-            onClick={() => navigate('/account')}
-          >
-            Account
-          </button>
+          
 
           {/* Report Button */}
           <button
@@ -108,22 +93,7 @@ export default function Main() {
             Report
           </button>
 
-          {/* Notification Button */}
-          <button
-            style={{
-              margin: '10px',
-              padding: '15px 30px',
-              borderRadius: '10px',
-              border: 'none',
-              backgroundColor: 'gray',
-              color: 'white',
-              fontSize: '18px',
-              cursor: 'pointer',
-            }}
-            onClick={() => navigate('/notification')}
-          >
-            Notification
-          </button>
+          
 
         </div>
         </div>
