@@ -1,97 +1,141 @@
-import React, { useState } from 'react'
-import './login.css'
-import axios from 'axios';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-//import BackgroundImage from '../BackgroundImage/BackGroundImage';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import './Login.css';
 
+class Login extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      password: '',
+      showPassword: false,
+      rememberMe: false,
+      isLoading: false
+    };
+  }
 
-export default function Login() {
+  handleInputChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
 
-    const [formData, setFormData] = useState({
-        email: '',
-        password: '',
-      });
-    
-      const [errorMessage, setErrorMessage] = useState('');
-      const [successMessage, setSuccessMessage] = useState('');
-      
-      // Inside Login component
-        const navigate = useNavigate();
+  togglePasswordVisibility = () => {
+    this.setState(prevState => ({
+      showPassword: !prevState.showPassword
+    }));
+  };
 
-    
-      const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({ ...formData, [name]: value });
-      };
-    
-      const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-          const response = await axios.post('http://localhost:8081/api/users/login', formData);
-          setSuccessMessage(response.data); // "Login successful"
-          console.log('User authenticated');
-          navigate('/main'); // Navigate to Expense Page on successful login
-        } catch (error) {
-          setErrorMessage(error.response?.data || 'Invalid credentials.');
-        }
-      };
+  handleSubmit = async (event) => {
+    event.preventDefault();
+    this.setState({ isLoading: true });
 
-  return (
-    <div>
-      <Header />
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1000));
 
+    console.log('Login attempted with:', {
+      email: this.state.email,
+      password: this.state.password,
+      rememberMe: this.state.rememberMe
+    });
+
+    this.setState({ isLoading: false });
+  };
+
+  render() {
+    const { email, password, showPassword, rememberMe, isLoading } = this.state;
+
+    return (
       <div className="login-container">
+        <div className="login-card">
+          <div className="login-header">
+            <div className="logo">
+              <span className="logo-circle"></span>
+              <span className="logo-text">CompanyName</span>
+            </div>
+            <h1>Welcome back</h1>
+            <p>Enter your credentials to access your account</p>
+          </div>
+
+          <form onSubmit={this.handleSubmit} className="login-form">
+            <div className="form-group">
+              <label htmlFor="email">Email address</label>
+              <div className="input-container">
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={email}
+                  onChange={this.handleInputChange}
+                  placeholder="name@company.com"
+                  required
+                />
+                <span className="input-icon">📧</span>
+              </div>
+            </div>
+
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
+              <div className="input-container">
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  id="password"
+                  name="password"
+                  value={password}
+                  onChange={this.handleInputChange}
+                  placeholder="Enter your password"
+                  required
+                />
+                <button
+                  type="button"
+                  className="password-toggle"
+                  onClick={this.togglePasswordVisibility}
+                >
+                  {showPassword ? '👁️' : '👁️‍🗨️'}
+                </button>
+              </div>
+            </div>
+
+            <div className="form-options">
+              <label className="remember-me">
+                <input
+                  type="checkbox"
+                  checked={rememberMe}
+                  onChange={(e) => this.setState({ rememberMe: e.target.checked })}
+                />
+                <span>Remember me</span>
+              </label>
+              <a href="#" className="forgot-password">Forgot password?</a>
+            </div>
+
+            <button
+              type="submit"
+              className={`login-button ${isLoading ? 'loading' : ''}`}
+              disabled={isLoading}
+            >
+              {isLoading ? 'Signing in...' : 'Sign in'}
+            </button>
+
+            <div className="divider">
+              <span>OR</span>
+            </div>
 
 
-      <div style={{ maxWidth: '400px', margin: 'auto', padding: '20px' }}>
-      
-      <div className="box">       
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div className='login1'>
-          <label>Email:</label>
-          <input className='login_input'
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-          />
+            <div className="social-login">
+              <button type="button" className="google-button">
+                <span>Continue with Google</span>
+              </button>
+              <button type="button" className="github-button">
+                <span>Continue with GitHub</span>
+              </button>
+            </div>
+
+            <p className="signup-link">
+              Don't have an account? <a href="#">Sign up</a>
+            </p>
+          </form>
         </div>
-        <div className='login1'>
-          <label>Password:</label>
-          <input className='login_input'
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-          />
-        </div>
-        {errorMessage && (
-          <div style={{ color: 'red', marginBottom: '10px' }}>{errorMessage}</div>
-        )}
-        {successMessage && (
-          <div style={{ color: 'green', marginBottom: '10px' }}>{successMessage}</div>
-        )}
-        <button
-          type="submit"
-          style={{
-            backgroundColor: '#4CAF50',
-            color: 'white',
-            padding: '10px',
-            border: 'none',
-            cursor: 'pointer',
-            width: '100%',
-          }}
-        >
-          Login
-        </button>
-      </form>
-    </div>
-    </div>
-    <Footer />
-    </div>
-    </div>
-  );
+      </div>
+    );
+  }
 }
+
+export default Login;

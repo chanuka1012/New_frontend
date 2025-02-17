@@ -1,158 +1,140 @@
-import React, { useState } from 'react';
-import './register.css';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
-import BackgroundImage from '../BackgroundImage/BackGroundImage';
+import React from 'react';
 
-export default function Register() {
-  const [formData, setFormData] = useState({
-    //id: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-  });
+class Register extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: '',
+      username: '',
+      password: '',
+      showPassword: false,
+      marketing: false
+    };
+  }
 
-  const [message, setMessage] = useState('');
-  const navigate = useNavigate(); // Hook for navigation
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+  handleInputChange = (event) => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
   };
 
-  const validatePassword = () => {
-    const { password } = formData;
-    if (password.length < 6) {
-      return 'Password must be at least 6 characters long.';
-    }
-    return '';
+  handleCheckboxChange = (event) => {
+    const { name, checked } = event.target;
+    this.setState({ [name]: checked });
   };
 
-  
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  
-    const validationMessage = validatePassword();
-    if (validationMessage) {
-      setMessage(validationMessage);
-      return;
-    }
-  
-    try {
-      const response = await axios.post('http://localhost:8081/api/users/register', formData);
-      setMessage('Registration successful!'); // Backend success message
-      setFormData({
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: '',
-      });
-
-      // Redirect to login page
-      //Delay navigation to Login page
-      setTimeout(()=>{
-        navigate('/login');
-      },3000);//3-second delay
-    } catch (error) {
-      if (error.response) {
-        // Backend returned an error response
-        setMessage(error.response.data || 'Error registering user. Please try again.');
-      } else if (error.request) {
-        // No response received from the backend
-        setMessage('No response from server. Please try again later.');
-      } else {
-        // Other errors
-        setMessage('Error registering user. Please try again.');
-      }
-      console.error(error);
-    } 
+  togglePasswordVisibility = () => {
+    this.setState(prevState => ({
+      showPassword: !prevState.showPassword
+    }));
   };
-  
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    // Handle form submission
+    console.log('Form submitted:', this.state);
+  };
 
-  return (
-    <div>
-      <Header />
-      
-      <div className="registration-container">
+  render() {
+    const { email, username, password, showPassword, marketing } = this.state;
 
-    <div style={{ maxWidth: '400px', margin: 'auto', padding: '20px' }}>
+    return (
+      <div className="p-6 max-w-md mx-auto">
+        <h1 className="text-2xl font-bold mb-2">Sign up</h1>
+        <p className="mb-6">
+          Create an account or{' '}
+          <a href="#" className="text-purple-600 hover:underline">
+            Sign in
+          </a>
+        </p>
 
-    <div className="box">
+        <form onSubmit={this.handleSubmit} className="space-y-4">
+          <div>
+            <label className="block text-gray-700 mb-1">
+              Email address
+            </label>
+            <input
+              type="email"
+              name="email"
+              value={email}
+              onChange={this.handleInputChange}
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="Enter your email"
+            />
+          </div>
 
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        
-        <div className="register1">
-          <label>First Name:</label>
-          <input
-            className="input1"
-            type="text"
-            name="firstName"
-            value={formData.firstName}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="register1">
-          <label>Last Name:</label>
-          <input
-            className="input1"
-            type="text"
-            name="lastName"
-            value={formData.lastName} 
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="register1">
-          <label>Email:</label>
-          <input
-            className="input1"
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="register1">
-          <label>Password:</label>
-          <input
-            className="input1"
-            type="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <button className="buttonregister" type="submit">
-          Register
-        </button>
-      </form>
-      {message && (
-        <div
-          style={{
-            marginTop: '20px',
-            padding: '10px',
-            color: message === 'Registration successful!' ? 'green' : 'red',
-            border: `1px solid ${
-              message === 'Registration successful!' ? 'green' : 'red'
-            }`,
-          }}
-        >
-          {message}
-        </div>
-      )}
+          <div>
+            <label className="block text-gray-700 mb-1">
+              Username
+            </label>
+            <input
+              type="text"
+              name="username"
+              value={username}
+              onChange={this.handleInputChange}
+              className="w-full p-2 border border-gray-300 rounded"
+              placeholder="Choose a username"
+            />
+          </div>
+
+          <div>
+            <label className="block text-gray-700 mb-1">
+              Password
+            </label>
+            <div className="relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                name="password"
+                value={password}
+                onChange={this.handleInputChange}
+                className="w-full p-2 border border-gray-300 rounded"
+                placeholder="Create a password"
+              />
+              <button
+                type="button"
+                onClick={this.togglePasswordVisibility}
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-green-500 text-white p-1 rounded"
+                style={{ padding: '2px 8px' }}
+              >
+                👁️
+              </button>
+            </div>
+          </div>
+
+          <div className="flex items-start gap-2">
+            <input
+              type="checkbox"
+              id="marketing"
+              name="marketing"
+              checked={marketing}
+              onChange={this.handleCheckboxChange}
+              className="mt-1"
+            />
+            <label htmlFor="marketing" className="text-sm text-gray-700">
+              I do not want to receive emails with advertising, news, suggestions or marketing promotions
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            className="w-auto px-6 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+          >
+            Sign up
+          </button>
+
+          <p className="text-sm text-gray-600 mt-4">
+            By signing up to create an account, you are accepting our{' '}
+            <a href="#" className="text-purple-600 hover:underline">
+              terms of service
+            </a>{' '}
+            and{' '}
+            <a href="#" className="text-purple-600 hover:underline">
+              privacy policy
+            </a>
+          </p>
+        </form>
       </div>
-    </div>
-    <Footer />
-    </div>
-    </div>
-  );
+    );
+  }
 }
+
+export default Register;
