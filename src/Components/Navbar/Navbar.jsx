@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import './Navbar.css';
 
@@ -11,8 +10,10 @@ const Navbar = () => {
 
     return (
         <nav className="navbar">
-            <div className="nav-brand">
-                <span className="logo">LOGO</span>
+            <div className="navbar-logo">
+                <span class="sss">
+                    <img src={"/logo.png"} alt="Logo" className="logo-image" /></span>
+                <span className="logo-text"> SaveMate</span>
             </div>
 
             <button className="hamburger" onClick={toggleMenu}>
@@ -25,7 +26,7 @@ const Navbar = () => {
                 <a href="#" className="nav-item">Home</a>
                 <a href="#" className="nav-item">About Us</a>
                 <a href="#" className="nav-item">Login</a>
-                <a href="#" className="nav-item signup">Sign Up</a>
+                <a href="#" className="nav-item">Sign Up</a>
             </div>
         </nav>
     );

@@ -1,28 +1,89 @@
-.box {
-    background-color: rgba(255, 255, 255, 0.2) !important;; /* White background with 0.5 opacity */
-    padding: 20px;
-    padding-right: 40px;
-    border-radius: 8px;
+/* Footer Styling */
+.footer {
+  background: #111;
+}
+
+.footer-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.footer-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: red;
+  margin-bottom: -0.5rem;
+}
+
+.footer-link {
+  color: #b3b3b3;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: red;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  color: red;
+}
+
+.footer-input {
+  flex: 1;
+  padding: 0.75rem;
+  background: #333;
+  border: 1px solid #555;
+  color: white;
+  border-radius: 5px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.footer-input:focus {
+  border-color: red;
+}
+
+.footer-button {
+  padding: 0.75rem 1.5rem;
+  background: red;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.footer-button:hover {
+  background: darkred;
+}
+
+@media (max-width: 768px) {
+  .footer-title {
+    text-align: center;
+  }
+
+  .footer-link {
+    text-align: center;
+  }
+
+  .footer-input,
+  .footer-button {
     width: 100%;
-    max-width: 450px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add subtle shadow for better contrast */
-    margin-left: auto; /* Push the box to the right */
-    margin-right: 20px; /* Add some space from the right edge */
-    color: #000; /* Ensure the text remains fully visible */
-    backdrop-filter: blur(10px); /* Add a glassmorphic effect */
-    border: 1px solid rgba(255, 255, 255, 0.4); /*  Add a subtle border for visibility */
   }
+}
 
-  
-
-  .home-container {
-    background-image: url('/money_manager.jpg'); /* Replace with the path to your image */
-    background-size: cover;
-    background-position: center;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+@media (max-width: 480px) {
+  .footer {
+    padding: 4rem 2rem;
   }
+}

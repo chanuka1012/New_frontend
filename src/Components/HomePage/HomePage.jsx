@@ -4,7 +4,7 @@ import './HomePage.css'; // Add styling for header and footer here
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import BackgroundImage from '../BackgroundImage/BackGroundImage';
-import Navbar from '../../../../New_frontend_clone/src/Components/Navbar/Navbar';
+import Navbar from '../../../../New_frontend/src/Components/Navbar/Navbar';
 
 export default function HomePage() {
   return (

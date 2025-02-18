@@ -1,0 +1,131 @@
+/* Footer container */
+.footer {
+    background: linear-gradient(to bottom, #e0fffc, #f7f7f7);
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+    color: #000000;
+}
+
+/* General container for footer content */
+.footer-container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+/* Footer section grid */
+.footer-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Footer title style */
+.footer-title {
+    font-size: 1.9rem;
+    font-weight: bold;
+    margin-bottom: 1.7rem;
+    position: relative;
+    color: #030c31f6;
+}
+
+.footer-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 120px;
+    height: 2px;
+    background-color: rgb(0, 0, 0);
+    margin-bottom: 0.5rem;
+}
+
+/* Footer links */
+.footer-list {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-link {
+    color: #000000;
+    text-decoration: none;
+    font-size: 1rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: red;
+}
+
+/* Footer contact info */
+.footer-contact p {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-icon {
+    margin-right: 0.5rem;
+    width: 18px;
+    height: 18px;
+}
+
+/* Newsletter section */
+.footer-newsletter {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer-input {
+    padding: 0.75rem;
+    background-color: #ffffff;
+    border: 1px solid #444;
+    color: #000000;
+    border-radius: 4px;
+    width: 100%;
+    max-width: 280px;
+}
+
+.footer-btn {
+    padding: 0.75rem 2rem;
+    background-color: red;
+    color: #141313;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.footer-btn:hover {
+    background-color: #c00;
+}
+
+/* Footer bottom */
+.footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid #444;
+    text-align: center;
+}
+
+.footer-bottom-links {
+    margin-bottom: 1rem;
+}
+
+.footer-text {
+    font-size: 1rem;
+    color: #111010;
+}
+
+.footer-bottom-links a {
+    color: #080808;
+    margin: 0 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom-links a:hover {
+    color: red;
+}
