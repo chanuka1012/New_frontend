@@ -18,7 +18,7 @@ export default function ExpenseSavePage() {
     amount: '',
     date: '',// Will be auto-filled
     description: '',
-    userId: '', // Add dynamic userId if available
+    userId: localStorage.getItem('userId'), // Add dynamic userId if available
   });
 
   const [message, setMessage] = useState('');

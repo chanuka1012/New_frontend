@@ -30,13 +30,18 @@ export default function Login() {
         e.preventDefault();
         try {
           const response = await axios.post('http://localhost:8081/api/users/login', formData);
+          console.log(response.data['userId']);
+          localStorage.setItem("userId",response.data['userId']);
+          const data = response.data;
           setSuccessMessage(response.data); // "Login successful"
+          
           console.log('User authenticated');
           navigate('/main'); // Navigate to Expense Page on successful login
         } catch (error) {
           setErrorMessage(error.response?.data || 'Invalid credentials.');
         }
       };
+      //localStorage.getItem("userId");
 
   return (
     <div>
