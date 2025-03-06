@@ -23,7 +23,7 @@ export default function IncomeSave() {
     amount: '',
     date: today, // Initialize with today's date
     source: '',
-    userId: '', // Add dynamic userId if available
+    userId: localStorage.getItem('userId'), // Add dynamic userId if available
   });
 
   const [message, setMessage] = useState('');
