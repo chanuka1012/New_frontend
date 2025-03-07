@@ -95,19 +95,31 @@ export default function ReportPage() {
               />
             </div>
             <button
-              type="submit"
-              style={{
-                backgroundColor: '#28A745',
-                color: 'white',
-                padding: '10px 20px',
-                borderRadius: '5px',
-                border: 'none',
-                cursor: 'pointer',
-                width: '100%',
-              }}
-            >
-              Generate Report
-            </button>
+  type="submit"
+  style={{
+    backgroundColor: '#4D55CC',
+    color: 'white',
+    padding: '12px 24px',
+    borderRadius: '8px',
+    border: 'none',
+    cursor: 'pointer',
+    width: '100%',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    transition: 'all 0.3s ease', // Smooth transition for hover effect
+  }}
+  onMouseOver={(e) => {
+    e.target.style.backgroundColor = '#211C84'; // Darker green on hover
+    e.target.style.transform = 'scale(1.05)'; // Slightly increase size on hover
+  }}
+  onMouseOut={(e) => {
+    e.target.style.backgroundColor = '#211C84'; // Revert to original color
+    e.target.style.transform = 'scale(1)'; // Revert to original size
+  }}
+>
+  Generate Report
+</button>
+
           </form>
 
           {message && (
