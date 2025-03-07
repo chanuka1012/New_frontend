@@ -1,5 +1,5 @@
-.expense-container{
-    background-image: url('/money_manager.jpg'); /* Replace with the path to your image */
+.expense-container {
+    background-image: url('/money_manager.jpg'); 
     background-size: cover;
     background-position: center;
     min-height: 100vh;
@@ -10,11 +10,89 @@
     padding: 20px;
 }
 
-.box {
-    background-color: rgba(255, 255, 255, 0.5); /* White background with 0.5 opacity */
-    padding: 20px;
-    padding-right: 40px;
-    border-radius: 8px;
+/* Form Box Styling */
+.expense-form-box {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 500px;
     width: 100%;
-    max-width: 450px;
-  }
+}
+
+/* Input Fields */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+/* Save Button */
+.save-button {
+    background-color: #50488c;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+}
+
+/* Hover Effect */
+.save-button:hover {
+    background-color: #ba1279d1;
+    transform: scale(1.05);
+}
+
+/* Success & Error Messages */
+.message-box {
+    margin-top: 20px;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.success {
+    color: rgb(114, 13, 88);
+    border: 1px solid rgba(216, 20, 164, 0.904);
+    background: rgba(157, 9, 43, 0.777);
+}
+
+.error {
+    color: red;
+    border: 1px solid red;
+    background: rgba(188, 16, 59, 0.403);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .expense-form-box {
+        padding: 20px;
+    }
+}
